@@ -1,13 +1,14 @@
 #include <iostream>
 
-void bubbleSort(int* array, int size)
+template <typename T>
+void bubbleSort(T array[], int size)
 {
 	for (int i = 0; i < size; i++)
 	{
 		//instead do j = i + 1
 		for (int j = 0; j < size; j++)
 		{
-			int tempslot = array[i];
+			T tempslot = array[i];
 
 			if (array[i] < array[j])
 			{
@@ -17,9 +18,21 @@ void bubbleSort(int* array, int size)
 		}
 	}
 
-	for (int i = 0; i < size; i++)
+	/*for (int i = 0; i < size; i++)
 	{
 		std::cout << array[i] << std::endl;
+	}*/
+}
+
+/// <summary>
+/// Prints out array to console
+/// </summary>
+template <typename T>
+void printArray(T arr[], int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		std::cout << arr[i] << std::endl;
 	}
 }
 
@@ -66,19 +79,21 @@ void insertionSort(int array[], int size)
 		array[j + 1] = key;
 	}
 
-	//Print out array to console
-	for (int i = 0; i < size; i++)
-	{
-		std::cout << array[i] << std::endl;
-	}
+	////Print out array to console
+	//for (int i = 0; i < size; i++)
+	//{
+	//	std::cout << array[i] << std::endl;
+	//}
 }
+
 
 void main()
 {
-
 	int array[] = { 10, 2, 3, 5, 4 };
+	float arrFloat[] = { 1.2f, .4f, 8.6f, -12.9f };
 	// bubbleSort(array, 5);
-
+	bubbleSort(arrFloat, 4);
+	printArray(arrFloat, 4);
 	insertionSort(array, 5);
-
+	printArray(array, 5);
 }
