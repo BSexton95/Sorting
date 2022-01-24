@@ -44,19 +44,29 @@ void insertionSort(int array[], int size)
 	int j = 0;
 	int key = 0;
 
+	//Iterate through the array
 	for (int i = 1; i < size; i++)
 	{
+		//Store the current value of the current index
 		key = array[i];
+
+		//Set j to be the previous index
 		j = i - 1;
+
+		//While j hasn't reached the end of the list
+		//and the value at the index of j is greater than the key...
 		while (j >= 0 && array[j] > key)
 		{
+			//...move each element in the array over by 1
 			array[j + 1] = array[j];
 			--j;
 		}
 
+		//Set the index after j to be the key
 		array[j + 1] = key;
 	}
 
+	//Print out array to console
 	for (int i = 0; i < size; i++)
 	{
 		std::cout << array[i] << std::endl;
