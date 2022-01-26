@@ -1,4 +1,5 @@
 #include <iostream>
+#include "DynamicArray.h"
 
 template <typename T>
 void bubbleSort(T array[], int size)
@@ -86,14 +87,35 @@ void insertionSort(int array[], int size)
 	//}
 }
 
+void printDynamicArray(DynamicArray<int> arr)
+{
+	for (int i = 0; i < arr.getLength(); i++)
+		std::cout << arr.getItem(i) << std::endl;
+}
 
 void main()
 {
-	int array[] = { 10, 2, 3, 5, 4 };
-	float arrFloat[] = { 1.2f, .4f, 8.6f, -12.9f };
-	// bubbleSort(array, 5);
-	bubbleSort(arrFloat, 4);
-	printArray(arrFloat, 4);
-	insertionSort(array, 5);
-	printArray(array, 5);
+	//int array[] = { 10, 2, 3, 5, 4 };
+	//float arrFloat[] = { 1.2f, .4f, 8.6f, -12.9f };
+	//// bubbleSort(array, 5);
+	//bubbleSort(arrFloat, 4);
+	//printArray(arrFloat, 4);
+	//insertionSort(array, 5);
+	//printArray(array, 5);
+
+	DynamicArray<int> arr = DynamicArray<int>();
+	arr.addItem(10);
+	arr.addItem(3);
+	arr.addItem(5);
+	arr.addItem(4);
+	arr.addItem(7);
+	arr.addItem(9);
+	arr.addItem(2);
+
+	arr.sortItems();
+	printDynamicArray(arr);
+
+	arr.removeItem(3);
+	std::cout << std::endl;
+	printDynamicArray(arr);
 }
